@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+// go install github.com/go-micro/generator/cmd/protoc-gen-micro
+// protoc --go_out=./ --micro_out=./ ./userService.proto
+// go install github.com/favadi/protoc-go-inject-tag@latest
+// protoc-go-inject-tag -input="./pb/*.go"
+// 生成位置
+option go_package = ".;pb";
+
+message UserModel {
+  // @inject_tag: json:"id" from:"id"
+  uint32 id = 1;
+  // @inject_tag: json:"user_name" from:"user_name"
+  string user_name = 2;
+  // @inject_tag: json:"created_at" from:"created_at"
+  int64 created_at = 3;
+  // @inject_tag: json:"updated_at" from:"updated_at"
+  int64 updated_at = 4;
+  // @inject_tag: json:"deleted_at" from:"deleted_at"
+  int64 deleted_at = 5;
+}
+
+message UserRequest {
+  // @inject_tag: json:"user_name" from:"user_name"
+  string user_name = 1;
+  // @inject_tag: json:"password" from:"password"
+  string password = 2;
+  // @inject_tag: json:"password_confirm" from:"password_confirm"
+  string password_confirm = 3;
+}
+
+message UserResponse{
+  // @inject_tag: json:"user_detail" from:"user_detail"
+  UserModel user_detail = 1;
+  // @inject_tag: json:"code" from:"code"
+  uint32 code = 2;
+}
+
+service UserService {
+  rpc UserLogin(UserRequest) returns (UserResponse);
+  rpc UserRegister(UserRequest) returns (UserResponse);
+}

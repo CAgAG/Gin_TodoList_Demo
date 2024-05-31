@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "ee451fcf-8f0e-402a-b0b6-906a186e8787",
+		"name": "TodoList_demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12853077",
+		"_collection_link": "https://aoge22.postman.co/workspace/aoge-Workspace~90e3607f-323f-425d-86d6-e8ba40bdd0f4/collection/12853077-ee451fcf-8f0e-402a-b0b6-906a186e8787?action=share&source=collection_link&creator=12853077"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/ping",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "cag1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cag1",
+							"type": "text"
+						},
+						{
+							"key": "password_confirm",
+							"value": "cag1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/user/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "cag1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cag1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/user/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task_create",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaXNzIjoiY2FnIiwic3ViIjoidGl0bGUiLCJhdWQiOlsic29tZW9uZSJdLCJleHAiOjE3MTcyMTcyNTYsIm5iZiI6MTcxNzEzMDg1NiwiaWF0IjoxNzE3MTMwODU2LCJqdGkiOiIxIn0.CVoBgFUbq5aLnWru01NzRyJKw-a-vP1How-8QUgxpSI"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test_title55",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "test_content55",
+							"type": "text"
+						},
+						{
+							"key": "start_time",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "end_time",
+							"value": "2000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/task/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task_update",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaXNzIjoiY2FnIiwic3ViIjoidGl0bGUiLCJhdWQiOlsic29tZW9uZSJdLCJleHAiOjE3MTcyMTcyNTYsIm5iZiI6MTcxNzEzMDg1NiwiaWF0IjoxNzE3MTMwODU2LCJqdGkiOiIxIn0.CVoBgFUbq5aLnWru01NzRyJKw-a-vP1How-8QUgxpSI"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "test_update_title1",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "test_update_content",
+							"type": "text"
+						},
+						{
+							"key": "start_time",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "end_time",
+							"value": "2000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/task/update",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task_delete",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaXNzIjoiY2FnIiwic3ViIjoidGl0bGUiLCJhdWQiOlsic29tZW9uZSJdLCJleHAiOjE3MTcyMTcyNTYsIm5iZiI6MTcxNzEzMDg1NiwiaWF0IjoxNzE3MTMwODU2LCJqdGkiOiIxIn0.CVoBgFUbq5aLnWru01NzRyJKw-a-vP1How-8QUgxpSI"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/task/delete",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task_list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaXNzIjoiY2FnIiwic3ViIjoidGl0bGUiLCJhdWQiOlsic29tZW9uZSJdLCJleHAiOjE3MTcyMTcyNTYsIm5iZiI6MTcxNzEzMDg1NiwiaWF0IjoxNzE3MTMwODU2LCJqdGkiOiIxIn0.CVoBgFUbq5aLnWru01NzRyJKw-a-vP1How-8QUgxpSI"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "start",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/task/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task_get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaXNzIjoiY2FnIiwic3ViIjoidGl0bGUiLCJhdWQiOlsic29tZW9uZSJdLCJleHAiOjE3MTcyMTcyNTYsIm5iZiI6MTcxNzEzMDg1NiwiaWF0IjoxNzE3MTMwODU2LCJqdGkiOiIxIn0.CVoBgFUbq5aLnWru01NzRyJKw-a-vP1How-8QUgxpSI"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/task/get",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
