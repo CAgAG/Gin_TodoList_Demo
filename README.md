@@ -116,7 +116,7 @@ TaskServiceAddress = 127.0.0.1:8083
 go mod tidy
 go run app/user/cmd/main.go
 go run app/task/cmd/main.go
-go run app/gateway/cms/main.go
+go run app/gateway/cmd/main.go
 ```
 
 ## 接口
