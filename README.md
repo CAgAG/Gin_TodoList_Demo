@@ -111,13 +111,13 @@ TaskServiceAddress = 127.0.0.1:8083
 
 ## 项目运行
 ### 本机运行
-#### 安装好对应的软件后
+#### 安装好对应的软件
 - Mysql
 - RabbitMq
 - Protoc
 - Etcd
 
-#### docker 配置环境
+#### 或是使用docker 配置环境
 安装 docker 和 docker-compose 后, 
 在项目根目录运行命令
 ```bash
