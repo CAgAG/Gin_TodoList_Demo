@@ -1,0 +1,71 @@
+version: "3.7"
+
+networks:
+  my_proj:
+    driver: bridge
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=todo_list_demo
+      - MYSQL_USER=test_root
+      - MYSQL_PASSWORD=123456
+      - TZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./config/mysql:/var/lib/mysql
+      - ./logs/mysql/log:/var/log/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - my_proj
+
+  etcd:
+    image: "quay.io/coreos/etcd:v3.5.14"
+    container_name: etcd
+    restart: on-failure
+    privileged: true
+    ports:
+      - "2379:2379"
+    environment:
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+      - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
+      - "ALLOW_NONE_AUTHENTICATION=yes"
+      - ETCD_API=3
+      - ETCD_AUTH="simple"
+      - ETCD_AUTH_USER="todo_list"
+      - ETCD_AUTH_PASSWORD="todo_list"
+    networks:
+      - my_proj
+
+  etcd-keeper:
+    image: "evildecay/etcdkeeper:latest"
+    container_name: etcd-keeper
+    environment:
+      - ETCD_HOSTS=http://etcd:2379
+      - SW_STORAGE_ETCD_CLUSTER_NODES=etcd:2379
+      - HOST=127.0.0.1
+      - HOSTNAME=etcd-keeper
+    links:
+      - etcd
+    ports:
+      - "8080:8080"
+    networks:
+      - my_proj
+
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"    # AMQP 端口
+      - "15672:15672"  # 管理界面端口
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest  # 设置 RabbitMQ 默认用户名
+      - RABBITMQ_DEFAULT_PASS=guest  # 设置 RabbitMQ 默认密码
+    networks:
+      - my_proj
