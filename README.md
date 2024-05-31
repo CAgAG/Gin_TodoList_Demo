@@ -110,7 +110,7 @@ TaskServiceAddress = 127.0.0.1:8083
 ```
 
 ## 项目运行
-### 本机运行
+### 安装环境
 #### 安装好对应的软件
 - Mysql
 - RabbitMq
