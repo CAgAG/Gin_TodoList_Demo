@@ -7,6 +7,7 @@ import (
 	"TodoList_demo/pkg/status"
 	"context"
 	"errors"
+	"fmt"
 	"sync"
 )
 
@@ -62,7 +63,7 @@ func (us *UserService) UserRegister(ctx context.Context, req *pb.UserRequest, re
 	resp.Code = status.Success
 	if req.Password != req.PasswordConfirm {
 		resp.Code = status.Error
-		err = errors.New("两次密码不一致")
+		err = errors.New(fmt.Sprintf("两次密码不一致: %s != %s", req.Password, req.PasswordConfirm))
 		return
 	}
 

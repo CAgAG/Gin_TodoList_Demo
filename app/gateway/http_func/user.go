@@ -20,7 +20,7 @@ func UserRegisterHandler(ctx *gin.Context) {
 			password, _ := ctx.GetPostForm("password")
 			req.Password = password
 			password_confirm, _ := ctx.GetPostForm("password_confirm")
-			req.Password = password_confirm
+			req.PasswordConfirm = password_confirm
 		}
 
 		resp, err := rpc.UserRegister(ctx, &req)
