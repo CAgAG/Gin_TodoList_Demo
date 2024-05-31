@@ -111,7 +111,27 @@ TaskServiceAddress = 127.0.0.1:8083
 
 ## 项目运行
 ### 本机运行
-安装好对应的软件后, 运行
+#### 安装好对应的软件后
+- Mysql
+- RabbitMq
+- Protoc
+- Etcd
+
+#### docker 配置环境
+安装 docker 和 docker-compose 后, 
+在项目根目录运行命令
+```bash
+docker-compose up -d
+```
+> Ubuntu
+> 
+> 启动 docker `sudo service docker start`
+> 
+> 关闭 docker `sudo service docker stop`
+>
+> 查看数据库 `docker exec -it mysql /bin/bash` 
+
+### 运行命令
 ```bash
 go mod tidy
 go run app/user/cmd/main.go
