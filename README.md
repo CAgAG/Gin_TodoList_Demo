@@ -180,4 +180,9 @@ Get: http://127.0.0.1:4000/api/v1/task/get
 
 Get: http://127.0.0.1:4000/api/v1/task/list
 
-[参考](https://github.com/CocaineCong/micro-todoList)
+> 
+> [参考1](https://gin-gonic.com/docs/),
+> [参考2](https://grpc.io/docs/),
+> [参考3](https://github.com/go-micro/go-micro),
+> [参考4](https://github.com/CocaineCong/micro-todoList),
+> [参考5](https://www.rabbitmq.com/docs)
